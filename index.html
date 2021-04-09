@@ -33,8 +33,10 @@
     <script src="js/script.js"></script>
   </head>
   <body>
-    <div id="app" class="screen flex">
-      <div class="head_bar flex spacebet aligncen">
+    <!-- screen -->
+    <div id="app" class="screen flex_col">
+      <!-- barra comandi -->
+      <div class="head_bar flex space_bet align_cen">
         <div class="app_name">
           <span>BoolzApp</span>
         </div>
@@ -44,6 +46,32 @@
           <span><i class="fas fa-times"></i></span>
         </div>
       </div>
+
+      <main class="flex">
+        <!-- parte sinistra -->
+        <div class="left_part flex_col">
+          <div class="my_profile upper_bar flex space_bet align_cen"></div>
+          <div class="search flex just_cen align_cen">
+            <div class="search_box flex space_bet align_cen">
+              <span class="pointer"><i class="fas fa-search"></i></span>
+              <input type="text" placeholder="Cerca o inizia una nuova chat">
+            </div>
+          </div>
+          <div class="my_contacts">
+            <ul>
+              <li>contatto</li>
+              <li>contatto</li>
+              <li>contatto</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- parte destra -->
+        <div class="right_part flex_col">
+          <div class="upper_bar flex space_bet align_cen"></div>
+        </div>
+      </main>
     </div>
+    <!-- fine screen -->
   </body>
 </html>
