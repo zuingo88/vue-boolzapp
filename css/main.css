@@ -73,7 +73,7 @@ ul li {
   opacity: 0.7;
 }
 
-/* left_part */
+/* LEFT_PART */
 .left_part {
   height: 100%;
   width: 40%;
@@ -89,12 +89,14 @@ ul li {
   background-color: #393939;
 }
 
-.left_part .upper_bar {
+.my_profile {
   border-right: solid 1px #6c6c6c;
 }
 
+/* search */
 .search {
   height: 45px;
+  border-bottom: solid 1px #393939;
 }
 
 .search_box {
@@ -113,8 +115,24 @@ ul li {
   border-radius: 22.5px;
 }
 
-.search_box input:focus-within {
-  border: none;
+.search_box input:focus {
+  outline: none;
+}
+
+/* my_contacts */
+.my_contact_li {
+  height: 70px;
+}
+
+.my_contact_profileimg {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.my_contact_ref {
+  
 }
 
 /* right_part */
