@@ -86,16 +86,53 @@ ul li {
 
 .upper_bar {
   height: 60px;
+  flex-shrink: 0;
   background-color: #393939;
 }
 
+/* my_profile */
 .my_profile {
   border-right: solid 1px #6c6c6c;
+}
+
+.my_profileimg {
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.my_settings span {
+  margin-left: 10px;
+  font-size: 20px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.my_settings span.stories {
+  position: relative;
+}
+
+.my_settings span.green_point {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(25%, 5%);
+  height: 8px;
+  width: 8px;
+  background-color: mediumspringgreen;
+  border-radius: 50%;
+}
+
+.my_settings span:hover {
+  opacity: 1;
 }
 
 /* search */
 .search {
   height: 45px;
+  flex-shrink: 0;
   border-bottom: solid 1px #393939;
 }
 
@@ -120,19 +157,38 @@ ul li {
 }
 
 /* my_contacts */
-.my_contact_li {
+.my_contacts {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.contact_li {
   height: 70px;
 }
 
-.my_contact_profileimg {
-  height: 50px;
-  width: 50px;
-  background-color: white;
-  border-radius: 50%;
+.my_contacts li:hover,
+.my_contacts li:focus {
+  background-color: #393939;
 }
 
-.my_contact_ref {
-  
+.contact_profileimg {
+  height: 50px;
+  width: 50px;
+  margin-right: 15px;
+  background-color: white;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.contact_ref {
+  flex-grow: 1;
+  padding: 10px 0;
+  border-bottom: solid 1px #393939;
+}
+
+.contact_ref span {
+  font-size: 14px;
+  opacity: 0.7;
 }
 
 /* right_part */
