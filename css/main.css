@@ -39,6 +39,11 @@ main {
   flex-direction: column;
 }
 
+.flex_col_rev {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .wrap {
   flex-wrap: wrap;
 }
@@ -207,12 +212,10 @@ input:focus {
 .right_part {
   height: 100%;
   width: 60%;
-  background-image: url(../img/wallpaper.jpg);
-  background-size: cover;
-  /* background-size: 100% 100%; */
-  background-repeat: no-repeat;
+  
 }
 
+/* contact_page */
 .contact_page {
   padding: 0 10px;
 }
@@ -229,3 +232,66 @@ input:focus {
   border-radius: 50%;
   overflow: hidden;
 }
+
+/* conversation */
+.conversation {
+  flex-grow: 1;
+  justify-content: end;
+  height: 100%;
+  padding: 0 20px;
+  background-image: url(../img/wallpaper.jpg);
+  background-size: cover;
+  /* background-size: 100vh 100vw; */
+  background-repeat: no-repeat;
+  overflow: auto;
+}
+
+.conversation_row {
+  width: 100%;
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.bubble {
+  position: relative;
+  max-width: 75%;
+  margin: 3px;
+  padding: 10px;
+}
+
+.my_speech {
+  align-self: flex-end;
+  background-color: #12938c;
+}
+
+.my_speech:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 8px solid #12938c;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #12938c;
+  border-bottom: 8px solid transparent;
+  right: -10px;
+  top: 0px;
+}
+
+.their_speech {
+  align-self: flex-start;
+  background-color: #2d2d2d;
+}
+
+.their_speech:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 8px solid transparent;
+  border-right: 8px solid #2d2d2d;
+  border-top: 8px solid #2d2d2d;
+  border-bottom: 8px solid transparent;
+  left: -10px;
+  top: 0px;
+}
+
