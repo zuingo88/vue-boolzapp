@@ -7,7 +7,6 @@
 }
 
 /* regole struttura */
-
 .screen {
   height: 100vh;
   width: 100%;
@@ -30,7 +29,6 @@
 main {
   height: calc(100% - 30px);
   width: 100%;
-  /* background-color: darkcyan; */
 }
 
 /* regole flex */
@@ -122,7 +120,7 @@ input:focus {
   margin-left: 10px;
 }
 
-.my_profileimg {
+.my_profile_img {
   height: 40px;
   width: 40px;
   background-color: white;
@@ -249,10 +247,6 @@ input:focus {
   justify-content: end;
   height: 100%;
   padding: 0 20px;
-  /* background-image: url(../img/wallpaper.jpg);
-  background-size: cover;
-  background-size: 100vh 100vw;
-  background-repeat: no-repeat; */
   overflow: auto;
 }
 
@@ -266,8 +260,16 @@ input:focus {
   position: relative;
   max-width: 75%;
   margin: 3px;
-  padding: 10px;
+  padding: 10px 30px 15px 10px;
   border-radius: 7px;
+}
+
+.bubble span {
+  position: absolute;
+  right: 4px;
+  bottom: 1px;
+  font-size: 12px;
+  opacity: 0.8;
 }
 
 .my_speech {
