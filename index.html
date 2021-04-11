@@ -68,158 +68,22 @@
           <!-- lista contatti -->
           <div class="my_contacts">
             <ul>
-              <li v-for="(element, index) in contacts">
+              <li v-for="(contact, index) in contacts" @click="selection">
                 <div class="contact_li flex space_bet align_cen">
                   <div class="contact_profile_img">
-                    <img :src="element.avatar" alt="" />
+                    <img :src="contact.avatar" alt="" />
                   </div>
                   <div class="contact_ref">
                     <div class="contact_name flex space_bet">
-                      <p>{{element.name}}</p>
-                      <span>hh/mm</span>
+                      <p>{{ contact.name }}</p>
+                      <span>{{ contact.messages[contact.messages.length - 1].hour }}</span>
                     </div>
                     <div class="msg_preview">
-                      <span>asdasdasdasdasd</span>
+                      <span>{{ contact.messages[contact.messages.length - 1].text }}</span>
                     </div>
                   </div>
                 </div>
               </li>
-
-              <!-- <li>
-                <div class="contact_li flex space_bet align_cen">
-                  <div class="contact_profileimg">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="contact_ref">
-                    <div class="contact_name flex space_bet">
-                      <p>NOME</p>
-                      <span>hh/mm</span>
-                    </div>
-                    <div class="msg_preview">
-                      <span>asdasdasdasdasd</p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="contact_li flex space_bet align_cen">
-                  <div class="contact_profileimg">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="contact_ref">
-                    <div class="contact_name flex space_bet">
-                      <p>NOME</p>
-                      <span>hh/mm</span>
-                    </div>
-                    <div class="msg_preview">
-                      <span>asdasdasdasdasd</p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="contact_li flex space_bet align_cen">
-                  <div class="contact_profileimg">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="contact_ref">
-                    <div class="contact_name flex space_bet">
-                      <p>NOME</p>
-                      <span>hh/mm</span>
-                    </div>
-                    <div class="msg_preview">
-                      <span>asdasdasdasdasd</span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="contact_li flex space_bet align_cen">
-                  <div class="contact_profileimg">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="contact_ref">
-                    <div class="contact_name flex space_bet">
-                      <p>NOME</p>
-                      <span>hh/mm</span>
-                    </div>
-                    <div class="msg_preview">
-                      <span>asdasdasdasdasd</p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="contact_li flex space_bet align_cen">
-                  <div class="contact_profileimg">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="contact_ref">
-                    <div class="contact_name flex space_bet">
-                      <p>NOME</p>
-                      <span>hh/mm</span>
-                    </div>
-                    <div class="msg_preview">
-                      <span>asdasdasdasdasd</p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="contact_li flex space_bet align_cen">
-                  <div class="contact_profileimg">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="contact_ref">
-                    <div class="contact_name flex space_bet">
-                      <p>NOME</p>
-                      <span>hh/mm</span>
-                    </div>
-                    <div class="msg_preview">
-                      <span>asdasdasdasdasd</span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="contact_li flex space_bet align_cen">
-                  <div class="contact_profileimg">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="contact_ref">
-                    <div class="contact_name flex space_bet">
-                      <p>NOME</p>
-                      <span>hh/mm</span>
-                    </div>
-                    <div class="msg_preview">
-                      <span>asdasdasdasdasd</p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="contact_li flex space_bet align_cen">
-                  <div class="contact_profileimg">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="contact_ref">
-                    <div class="contact_name flex space_bet">
-                      <p>NOME</p>
-                      <span>hh/mm</span>
-                    </div>
-                    <div class="msg_preview">
-                      <span>asdasdasdasdasd</p>
-                    </div>
-                  </div>
-                </div>
-              </li> -->
             </ul>
           </div>
         </div><!-- fine parte sinistra -->
@@ -230,11 +94,11 @@
           <div class="upper_bar contact_page flex space_bet align_cen">
             <div class="contact_page_profile flex align_cen">
               <div class="contact_page_img">
-                <img src="" alt="">
+                <img src="" alt=""> <!-- contact[selected].avatar -->
               </div>
               <div class="contact_ref">
                 <div class="contact_name">
-                  <p>NOME</p>
+                  <p>Nome {{  }}</p>
                 </div>
               </div>
             </div>
