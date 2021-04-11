@@ -180,10 +180,6 @@ function initVue() {
     methods: {
       selection: function (contact) {
         this.selected = contact;
-        // let message = this.selected.messages;
-        // let status = message.status;
-        // console.log(this.selected);
-        // console.log(message, status);
       },
       showConversation: function () {
 
