@@ -53,7 +53,9 @@
               />
             </div>
             <div class="my_settings">
-              <span class="stories"><span class="green_point"></span><i class="fas fa-spinner"></i></span>
+              <span class="stories"
+                ><span class="green_point"></span><i class="fas fa-spinner"></i
+              ></span>
               <span><i class="fas fa-plus"></i></span>
               <span><i class="fas fa-ellipsis-h"></i></span>
             </div>
@@ -68,7 +70,10 @@
           <!-- lista contatti -->
           <div class="my_contacts">
             <ul>
-              <li v-for="(contact, index) in contacts" @click="selection">
+              <li
+                v-for="(contact, index) in contacts"
+                @click="selection(contact)"
+              >
                 <div class="contact_li flex space_bet align_cen">
                   <div class="contact_profile_img">
                     <img :src="contact.avatar" alt="" />
@@ -76,93 +81,118 @@
                   <div class="contact_ref">
                     <div class="contact_name flex space_bet">
                       <p>{{ contact.name }}</p>
-                      <span>{{ contact.messages[contact.messages.length - 1].hour }}</span>
+                      <span
+                        >{{ contact.messages[contact.messages.length - 1].hour
+                        }}</span
+                      >
                     </div>
                     <div class="msg_preview">
-                      <span>{{ contact.messages[contact.messages.length - 1].text }}</span>
+                      <span
+                        >{{ contact.messages[contact.messages.length - 1].text
+                        }}</span
+                      >
                     </div>
                   </div>
                 </div>
               </li>
             </ul>
           </div>
-        </div><!-- fine parte sinistra -->
-        
+        </div>
+        <!-- fine parte sinistra -->
+
         <!-- parte destra -->
-        <div class="right_part flex_col">
-          <!-- upper_bar contact_page -->
-          <div class="upper_bar contact_page flex space_bet align_cen">
-            <div class="contact_page_profile flex align_cen">
-              <div class="contact_page_img">
-                <img src="" alt=""> <!-- contact[selected].avatar -->
+        <div v-if="selected" class="right_part flex_col">
+          <!-- selected_contact -->
+          <div class="selected_contact">
+            <!-- upper_bar contact_page -->
+            <div class="upper_bar contact_page flex space_bet align_cen">
+              <div class="contact_page_profile flex align_cen">
+                <div class="contact_page_img">
+                  <img :src="selected.avatar" alt="" />
+                </div>
+                <div class="contact_ref">
+                  <div class="contact_name">
+                    <p>{{ selected.name }}</p>
+                  </div>
+                </div>
               </div>
-              <div class="contact_ref">
-                <div class="contact_name">
-                  <p>Nome {{  }}</p>
+              <div class="contact_page_settings">
+                <span><i class="fas fa-video"></i></span>
+                <span><i class="fas fa-phone-alt"></i></span>
+                <span class="line"></span>
+                <span><i class="fas fa-search"></i></span>
+                <span><i class="fas fa-ellipsis-h"></i></span>
+              </div>
+            </div>
+            <!-- fine upper_bar contact_page -->
+
+            <!-- conversation -->
+            <div class="conversation flex_col_rev">
+              <div class="conversation_row flex_col_rev">
+                <div class="my_speech bubble">
+                  <p>messaggio1</p>
+                  <span>hh:mm <i class="fas fa-check-double"></i></span>
+                </div>
+                <div class="my_speech bubble">
+                  <p>
+                    messaggio2 messaggio2 messaggio2 messaggio2 messaggio2
+                    messaggio2 messaggio2 messaggio2
+                  </p>
+                </div>
+              </div>
+              <div class="conversation_row flex_col">
+                <div class="their_speech bubble">
+                  <p>risposta3</p>
+                </div>
+              </div>
+              <div class="conversation_row flex_col_rev">
+                <div class="my_speech bubble">
+                  <p>messaggio1</p>
+                </div>
+                <div class="my_speech bubble">
+                  <p>
+                    messaggio2 messaggio2 messaggio2 messaggio2 messaggio2
+                    messaggio2 messaggio2 messaggio2
+                  </p>
+                </div>
+              </div>
+              <div class="conversation_row flex_col">
+                <div class="their_speech bubble">
+                  <p>risposta3</p>
+                </div>
+              </div>
+              <div class="conversation_row flex_col_rev">
+                <div class="my_speech bubble">
+                  <p>messaggio1</p>
+                </div>
+                <div class="my_speech bubble">
+                  <p>
+                    messaggio2 messaggio2 messaggio2 messaggio2 messaggio2
+                    messaggio2 messaggio2 messaggio2
+                  </p>
+                </div>
+              </div>
+              <div class="conversation_row flex_col">
+                <div class="their_speech bubble">
+                  <p>risposta3</p>
                 </div>
               </div>
             </div>
-            <div class="contact_page_settings">
-              <span><i class="fas fa-video"></i></span>
-              <span><i class="fas fa-phone-alt"></i></span>
-              <span class="line"></span>
-              <span><i class="fas fa-search"></i></span>
-              <span><i class="fas fa-ellipsis-h"></i></span>
+            <!-- fine conversation -->
+
+            <!-- send message -->
+            <div class="send flex space_bet align_cen">
+              <span><i class="far fa-laugh pointer"></i></span>
+              <span><i class="fas fa-paperclip pointer"></i></span>
+              <input type="text" placeholder="Scrivi un messaggio" />
+              <span><i class="fas fa-microphone pointer"></i></span>
             </div>
-          </div><!-- fine upper_bar contact_page -->
-          <!-- conversation -->
-          <div class="conversation flex_col_rev">
-            <div class="conversation_row flex_col_rev">
-              <div class="my_speech bubble">
-                <p>messaggio1</p>
-                <span>hh:mm <i class="fas fa-check-double"></i></span>
-              </div>
-              <div class="my_speech bubble">
-                <p>messaggio2 messaggio2 messaggio2 messaggio2 messaggio2 messaggio2 messaggio2 messaggio2</p>
-              </div>
-            </div>
-            <div class="conversation_row flex_col">
-              <div class="their_speech bubble">
-                <p>risposta3</p>
-              </div>
-            </div>
-            <div class="conversation_row flex_col_rev">
-              <div class="my_speech bubble">
-                <p>messaggio1</p>
-              </div>
-              <div class="my_speech bubble">
-                <p>messaggio2 messaggio2 messaggio2 messaggio2 messaggio2 messaggio2 messaggio2 messaggio2</p>
-              </div>
-            </div>
-            <div class="conversation_row flex_col">
-              <div class="their_speech bubble">
-                <p>risposta3</p>
-              </div>
-            </div>
-            <div class="conversation_row flex_col_rev">
-              <div class="my_speech bubble">
-                <p>messaggio1</p>
-              </div>
-              <div class="my_speech bubble">
-                <p>messaggio2 messaggio2 messaggio2 messaggio2 messaggio2 messaggio2 messaggio2 messaggio2</p>
-              </div>
-            </div>
-            <div class="conversation_row flex_col">
-              <div class="their_speech bubble">
-                <p>risposta3</p>
-              </div>
-            </div>
-          </div><!-- fine conversation -->
-          <!-- send message -->
-          <div class="send flex space_bet align_cen">
-            <span><i class="far fa-laugh pointer"></i></span>
-            <span><i class="fas fa-paperclip pointer"></i></span>
-            <input type="text" placeholder="Scrivi un messaggio" />
-            <span><i class="fas fa-microphone pointer"></i></span>
           </div>
-        </div><!-- fine parte destra -->
+          <!-- selected_contact -->
+        </div>
+        <!-- fine parte destra -->
       </main>
-    </div><!-- fine screen -->
-    
+    </div>
+    <!-- fine screen -->
   </body>
 </html>

@@ -197,7 +197,8 @@ input:focus {
   overflow: hidden;
 }
 
-.contact_profile_img img {
+.contact_profile_img img,
+.contact_page_img img {
   height: 100%;
   width: 100%;
 }

@@ -22,7 +22,7 @@ function initVue() {
             {
               date: "10/01/2020",
               hour: "16:15",
-              text: "Tutto fatto!",
+              text: "Ma di quale cane parli?",
               status: "received",
             },
           ],
@@ -46,7 +46,7 @@ function initVue() {
             {
               date: "20/03/2020",
               hour: "16:35",
-              text: "Mi piacerebbe ma devo andare a fare la spesa.",
+              text: "Mi piacerebbe ma siamo in zona rossa.",
               status: "sent",
             },
           ],
@@ -58,7 +58,7 @@ function initVue() {
             {
               date: "28/03/2020",
               hour: "10:10",
-              text: "La Marianna va in campagna",
+              text: "Marianna va in campagna",
               status: "received",
             },
             {
@@ -100,13 +100,13 @@ function initVue() {
             {
               date: "10/01/2020",
               hour: "15:30",
-              text: "Lo sai che ha aperto una nuova pizzeria?",
+              text: "chi sei?",
               status: "sent",
             },
             {
               date: "10/01/2020",
               hour: "15:50",
-              text: "Si, ma preferirei andare al cinema",
+              text: "...sono lillo.",
               status: "received",
             },
           ],
@@ -118,13 +118,25 @@ function initVue() {
             {
               date: "10/01/2020",
               hour: "15:30",
-              text: "Lo sai che ha aperto una nuova pizzeria?",
+              text: "Mia moglie è appena andata al lavoro. arrivo",
               status: "sent",
             },
             {
               date: "10/01/2020",
               hour: "15:50",
-              text: "Si, ma preferirei andare al cinema",
+              text: "Allora mi preparo",
+              status: "received",
+            },
+            {
+              date: "10/01/2020",
+              hour: "16:01",
+              text: "Per cosa?",
+              status: "sent",
+            },
+            {
+              date: "10/01/2020",
+              hour: "16:04",
+              text: "Vedrai...",
               status: "received",
             },
           ],
@@ -148,7 +160,8 @@ function initVue() {
             {
               date: "10/01/2020",
               hour: "15:52",
-              text: "preparo la borsa e vado a giocare il calcetto con igor, come tutti i giovedì",
+              text:
+                "preparo la borsa e vado a giocare il calcetto con igor, come tutti i giovedì",
               status: "sent",
             },
             {
@@ -158,14 +171,13 @@ function initVue() {
               status: "received",
             },
           ],
-          selected: 0,
         },
       ],
+      selected: "",
     },
     methods: {
-      selection: function (index) { 
-        this.selected = index;
-        console.log(this.selected);
+      selection: function (contact) {
+        this.selected = contact;
       },
     },
   });
