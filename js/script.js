@@ -98,6 +98,49 @@ function initVue() {
             },
           ],
         },
+        {
+          name: "Igor calcetto",
+          avatar: "img/igor.jpg",
+          messages: [
+            {
+              date: "10/01/2020 15:30:55",
+              text: "Lo sai che ha aperto una nuova pizzeria?",
+              status: "sent",
+            },
+            {
+              date: "10/01/2020 15:50:00",
+              text: "Si, ma preferirei andare al cinema",
+              status: "received",
+            },
+          ],
+        },
+        {
+          name: "Amore",
+          avatar: "img/miriam.jpg",
+          messages: [
+            {
+              date: "10/01/2020 15:30:55",
+              text: "ciao amo, che fai?",
+              status: "sent",
+            },
+            {
+              date: "10/01/2020 15:50:00",
+              text: "Sto per finire di lavorare, tu?",
+              status: "received",
+            },
+            {
+              date: "10/01/2020 15:52:55",
+              text:
+                "preparo la borsa e vado a giocare il calcetto con igor, come tutti i giovedì",
+              status: "sent",
+            },
+            {
+              date: "10/01/2020 15:58:55",
+              text: "amore ma oggi è martedì...",
+              status: "received",
+            },
+          ],
+        },
       ],
     },
     methods: {

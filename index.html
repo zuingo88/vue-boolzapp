@@ -68,6 +68,57 @@
           <!-- lista contatti -->
           <div class="my_contacts">
             <ul>
+              <li v-for="(element, index) in contacts">
+                <div class="contact_li flex space_bet align_cen">
+                  <div class="contact_profile_img">
+                    <img :src="element.avatar" alt="" />
+                  </div>
+                  <div class="contact_ref">
+                    <div class="contact_name flex space_bet">
+                      <p>{{element.name}}</p>
+                      <span>hh/mm</span>
+                    </div>
+                    <div class="msg_preview">
+                      <span>asdasdasdasdasd</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- <li>
+                <div class="contact_li flex space_bet align_cen">
+                  <div class="contact_profileimg">
+                    <img src="" alt="" />
+                  </div>
+                  <div class="contact_ref">
+                    <div class="contact_name flex space_bet">
+                      <p>NOME</p>
+                      <span>hh/mm</span>
+                    </div>
+                    <div class="msg_preview">
+                      <span>asdasdasdasdasd</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="contact_li flex space_bet align_cen">
+                  <div class="contact_profileimg">
+                    <img src="" alt="" />
+                  </div>
+                  <div class="contact_ref">
+                    <div class="contact_name flex space_bet">
+                      <p>NOME</p>
+                      <span>hh/mm</span>
+                    </div>
+                    <div class="msg_preview">
+                      <span>asdasdasdasdasd</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
               <li>
                 <div class="contact_li flex space_bet align_cen">
                   <div class="contact_profileimg">
@@ -168,58 +219,7 @@
                     </div>
                   </div>
                 </div>
-              </li>
-
-              <li>
-                <div class="contact_li flex space_bet align_cen">
-                  <div class="contact_profileimg">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="contact_ref">
-                    <div class="contact_name flex space_bet">
-                      <p>NOME</p>
-                      <span>hh/mm</span>
-                    </div>
-                    <div class="msg_preview">
-                      <span>asdasdasdasdasd</span>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="contact_li flex space_bet align_cen">
-                  <div class="contact_profileimg">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="contact_ref">
-                    <div class="contact_name flex space_bet">
-                      <p>NOME</p>
-                      <span>hh/mm</span>
-                    </div>
-                    <div class="msg_preview">
-                      <span>asdasdasdasdasd</p>
-                    </div>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="contact_li flex space_bet align_cen">
-                  <div class="contact_profileimg">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="contact_ref">
-                    <div class="contact_name flex space_bet">
-                      <p>NOME</p>
-                      <span>hh/mm</span>
-                    </div>
-                    <div class="msg_preview">
-                      <span>asdasdasdasdasd</p>
-                    </div>
-                  </div>
-                </div>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div><!-- fine parte sinistra -->

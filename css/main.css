@@ -188,13 +188,18 @@ input:focus {
   background-color: #393939;
 }
 
-.contact_profileimg {
+.contact_profile_img {
   height: 50px;
   width: 50px;
   margin-right: 15px;
   background-color: white;
   border-radius: 50%;
   overflow: hidden;
+}
+
+.contact_profile_img img {
+  height: 100%;
+  width: 100%;
 }
 
 .contact_ref {
