@@ -220,6 +220,11 @@ input:focus {
   width: 60%;
 }
 
+.selected_contact {
+  height: 100%;
+  width: 100%;
+}
+
 /* contact_page */
 .contact_page {
   padding: 0 10px;

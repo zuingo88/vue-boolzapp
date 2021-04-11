@@ -101,9 +101,9 @@
         <!-- fine parte sinistra -->
 
         <!-- parte destra -->
-        <div v-if="selected" class="right_part flex_col">
+        <div class="right_part flex_col">
           <!-- selected_contact -->
-          <div class="selected_contact">
+          <div v-if="selected" class="selected_contact flex_col">
             <!-- upper_bar contact_page -->
             <div class="upper_bar contact_page flex space_bet align_cen">
               <div class="contact_page_profile flex align_cen">
@@ -127,56 +127,24 @@
             <!-- fine upper_bar contact_page -->
 
             <!-- conversation -->
-            <div class="conversation flex_col_rev">
-              <div class="conversation_row flex_col_rev">
-                <div class="my_speech bubble">
-                  <p>messaggio1</p>
-                  <span>hh:mm <i class="fas fa-check-double"></i></span>
-                </div>
-                <div class="my_speech bubble">
-                  <p>
-                    messaggio2 messaggio2 messaggio2 messaggio2 messaggio2
-                    messaggio2 messaggio2 messaggio2
-                  </p>
-                </div>
-              </div>
+            <div class="conversation flex_col">
               <div class="conversation_row flex_col">
-                <div class="their_speech bubble">
-                  <p>risposta3</p>
+                <div
+                  v-for="(message, index) in selected.messages"
+                  v-if="message.status == 'sent'"
+                  class="my_speech bubble"
+                >
+                  <p>{{ message.text }}</p>
+                  <span
+                    >{{ message.hour }}<i class="fas fa-check-double"></i
+                  ></span>
+                </div>
+                <div v-else class="their_speech bubble">
+                  <p>{{ message.text }}</p>
+                  <span>{{ message.hour }}</span>
                 </div>
               </div>
-              <div class="conversation_row flex_col_rev">
-                <div class="my_speech bubble">
-                  <p>messaggio1</p>
-                </div>
-                <div class="my_speech bubble">
-                  <p>
-                    messaggio2 messaggio2 messaggio2 messaggio2 messaggio2
-                    messaggio2 messaggio2 messaggio2
-                  </p>
-                </div>
-              </div>
-              <div class="conversation_row flex_col">
-                <div class="their_speech bubble">
-                  <p>risposta3</p>
-                </div>
-              </div>
-              <div class="conversation_row flex_col_rev">
-                <div class="my_speech bubble">
-                  <p>messaggio1</p>
-                </div>
-                <div class="my_speech bubble">
-                  <p>
-                    messaggio2 messaggio2 messaggio2 messaggio2 messaggio2
-                    messaggio2 messaggio2 messaggio2
-                  </p>
-                </div>
-              </div>
-              <div class="conversation_row flex_col">
-                <div class="their_speech bubble">
-                  <p>risposta3</p>
-                </div>
-              </div>
+              <div class="conversation_row flex_col"></div>
             </div>
             <!-- fine conversation -->
 
