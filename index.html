@@ -66,7 +66,7 @@
           <div class="search flex just_cen align_cen">
             <div class="search_box flex space_bet align_cen">
               <span class="pointer"><i class="fas fa-search"></i></span>
-              <input type="text" placeholder="Cerca o inizia una nuova chat" />
+              <input v-model="search" @keyup.enter="filter" type="text" placeholder="Cerca o inizia una nuova chat" />
             </div>
           </div>
           <!-- lista contatti -->

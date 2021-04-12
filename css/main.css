@@ -93,7 +93,7 @@ input:focus {
 /* LEFT_PART */
 .left_part {
   height: 100%;
-  width: 30%;
+  width: 35%;
   border-right: solid 1px #393939;
   background-color: #161621;
 }
@@ -217,7 +217,7 @@ input:focus {
 /* RIGHT_PART */
 .right_part {
   height: 100%;
-  width: 70%;
+  width: 65%;
 }
 
 .initial_screen {

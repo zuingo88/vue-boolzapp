@@ -185,6 +185,7 @@ function initVue() {
         hour: "",
         status: "received",
       },
+      search: "",
     },
     methods: {
       selection: function (contact) {
@@ -208,6 +209,18 @@ function initVue() {
         this.answer.hour = dayjs().format("HH:mm");
         this.selected.messages.push(this.answer);
       },
+      filter: function () {
+        const namesArr = [];
+        for (let i = 0; i < this.contacts.length; i++) {
+          const names = this.contacts[i].name;
+          namesArr.push(names);
+        }
+        const filtered = namesArr.filter(function(str) {
+          return str.includes(this.search);
+        });
+        console.log("cazzo");
+        return filtered
+      }
     },
   });
 }
