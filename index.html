@@ -129,6 +129,7 @@
             <!-- conversation -->
             <div class="conversation flex_col">
               <div class="conversation_row flex_col">
+                <!-- div messaggio mandato -->
                 <div
                   v-for="(message, index) in selected.messages"
                   v-if="message.status == 'sent'"
@@ -139,9 +140,7 @@
                     >{{ message.hour }}<i class="fas fa-check-double"></i
                   ></span>
                 </div>
-                <div v-for="(newMessage, i) in msgs" class="my_speech bubble">
-                  <p>{{ newMessage }}</p>
-                </div>
+                <!-- div messaggio ricevuto -->
                 <div v-else class="their_speech bubble">
                   <p>{{ message.text }}</p>
                   <span>{{ message.hour }}</span>
@@ -155,7 +154,7 @@
             <div class="send flex space_bet align_cen">
               <span><i class="far fa-laugh pointer"></i></span>
               <span><i class="fas fa-paperclip pointer"></i></span>
-              <input v-model="newMsg" @keyup.enter="createNewMsg" type="text" placeholder="Scrivi un messaggio" />
+              <input v-model="newMsgText" @keyup.enter="createNewMsg" @keyup.enter="createAnswer" type="text" placeholder="Scrivi un messaggio" />
               <span><i class="fas fa-microphone pointer"></i></span>
             </div>
           </div>

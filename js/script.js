@@ -174,20 +174,37 @@ function initVue() {
         },
       ],
       selected: "", //variabile per salvare l'oggetto contact in contacts, creato tramite v-for
-      newMsg: "",
-      msgs: [],
+      newMsg: {
+        text: "",
+        hour: "",
+        status: "sent",
+      },
+      newMsgText: "",
+      answer: {
+        text: "...ok.",
+        hour: "",
+        status: "received",
+      },
     },
     methods: {
       selection: function (contact) {
-        //funzione per copiare l'oggetto contact sul quale effettuo il click nella variabile selected
+        //copia l'oggetto contact sul quale effettuo il click nella variabile selected
         this.selected = contact;
       },
       createNewMsg: function () {
-        if (this.newMsg) {
-          this.msgs.push(this.newMsg);
-          this.newMsg = "";
-          console.log(this.newMsg, this.msgs);
+        //assegno ad una variabile il testo dell'oggetto newMsg e prendo il suo valore da un input
+        //aggiungo il nuovo messaggio all'array di messaggi del contatto selezionato
+        //svuoto l'input
+        this.newMsg.text = this.newMsgText;
+        if (this.newMsgText) {
+          this.selected.messages.push({...this.newMsg});
+          this.newMsgText = "";
         }
+        setTimeout(this.createAnswer, 3000);
+      },
+      createAnswer: function () {
+        //con la stessa logica precedente, aggiungo la risposta all'array di messaggi del contatto selezionato
+        this.selected.messages.push(this.answer);
       },
     },
   });
