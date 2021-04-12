@@ -196,6 +196,7 @@ function initVue() {
         //aggiungo il nuovo messaggio all'array di messaggi del contatto selezionato
         //svuoto l'input
         this.newMsg.text = this.newMsgText;
+        this.newMsg.hour = dayjs().format("HH:mm");
         if (this.newMsgText) {
           this.selected.messages.push({...this.newMsg});
           this.newMsgText = "";
@@ -204,6 +205,7 @@ function initVue() {
       },
       createAnswer: function () {
         //con la stessa logica precedente, aggiungo la risposta all'array di messaggi del contatto selezionato
+        this.answer.hour = dayjs().format("HH:mm");
         this.selected.messages.push(this.answer);
       },
     },
