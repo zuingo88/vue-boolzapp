@@ -93,7 +93,7 @@ input:focus {
 /* LEFT_PART */
 .left_part {
   height: 100%;
-  width: 40%;
+  width: 30%;
   border-right: solid 1px #393939;
   background-color: #161621;
 }
@@ -217,7 +217,14 @@ input:focus {
 /* RIGHT_PART */
 .right_part {
   height: 100%;
-  width: 60%;
+  width: 70%;
+}
+
+.initial_screen {
+  height: 100%;
+  width: 100%;
+  background-image: url(../img/initial.jpg);
+  background-size: cover;
 }
 
 .selected_contact {

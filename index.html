@@ -139,6 +139,9 @@
                     >{{ message.hour }}<i class="fas fa-check-double"></i
                   ></span>
                 </div>
+                <div v-for="(newMessage, i) in msgs" class="my_speech bubble">
+                  <p>{{ newMessage }}</p>
+                </div>
                 <div v-else class="their_speech bubble">
                   <p>{{ message.text }}</p>
                   <span>{{ message.hour }}</span>
@@ -152,10 +155,11 @@
             <div class="send flex space_bet align_cen">
               <span><i class="far fa-laugh pointer"></i></span>
               <span><i class="fas fa-paperclip pointer"></i></span>
-              <input type="text" placeholder="Scrivi un messaggio" />
+              <input v-model="newMsg" @keyup.enter="createNewMsg" type="text" placeholder="Scrivi un messaggio" />
               <span><i class="fas fa-microphone pointer"></i></span>
             </div>
           </div>
+          <div v-else class="initial_screen"></div>
           <!-- selected_contact -->
         </div>
         <!-- fine parte destra -->

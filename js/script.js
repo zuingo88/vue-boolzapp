@@ -173,16 +173,21 @@ function initVue() {
           ],
         },
       ],
-      selected: "",
-      myArr: [],
-      theirArr: [],
+      selected: "", //variabile per salvare l'oggetto contact in contacts, creato tramite v-for
+      newMsg: "",
+      msgs: [],
     },
     methods: {
       selection: function (contact) {
+        //funzione per copiare l'oggetto contact sul quale effettuo il click nella variabile selected
         this.selected = contact;
       },
-      showConversation: function () {
-
+      createNewMsg: function () {
+        if (this.newMsg) {
+          this.msgs.push(this.newMsg);
+          this.newMsg = "";
+          console.log(this.newMsg, this.msgs);
+        }
       },
     },
   });
