@@ -187,6 +187,10 @@ function initVue() {
       },
       search: "",
     },
+    updated() {
+      const container = this.$el.querySelector("#conversation");
+      container.scrollTop = container.scrollHeight;
+    },
     methods: {
       selection: function (contact) {
         //copia l'oggetto contact sul quale effettuo il click nella variabile selected

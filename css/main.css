@@ -180,11 +180,11 @@ input:focus {
 
 .contact_li {
   height: 70px;
-  padding: 0 10px;
+  padding: 10px;
 }
 
 .my_contacts li:hover,
-.my_contacts li:focus {
+.my_contacts li:active {
   background-color: #393939;
 }
 
@@ -203,9 +203,10 @@ input:focus {
   width: 100%;
 }
 
-.contact_ref {
+.left_part .contact_ref {
   flex-grow: 1;
-  padding: 10px 0;
+  height: 70px;
+  /* padding: 10px 0; */
   border-bottom: solid 1px #393939;
 }
 
@@ -237,7 +238,7 @@ input:focus {
   padding: 0 10px;
 }
 
-.contact_page span {
+.contact_page_settings span {
   margin-left: 15px;
 }
 
@@ -250,6 +251,10 @@ input:focus {
   overflow: hidden;
 }
 
+.contact_page_settings span:hover {
+  opacity: 1;
+}
+
 .contact_page .contact_name p {
   font-weight: bold;
 }
@@ -258,19 +263,26 @@ input:focus {
   border-right: solid 1px #6c6c6c;
 }
 
+.contact_name span {
+  display: none;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.contact_name:hover span {
+  display: block;
+  opacity: 1;
+}
+
 /* conversation */
 .conversation {
   flex-grow: 1;
   justify-content: end;
-  height: 100%;
-  padding: 0 20px;
-  overflow: auto;
-}
-
-.conversation_row {
+  min-height: 0px;
+  height: auto;
   width: 100%;
-  margin-right: 5px;
-  padding: 5px;
+  padding: 10px 20px;
+  overflow: auto;
 }
 
 .bubble {
@@ -327,6 +339,7 @@ input:focus {
 
 /* send_message */
 .send {
+  flex-shrink: 0;
   height: 75px;
   width: 100%;
   padding: 0 20px;

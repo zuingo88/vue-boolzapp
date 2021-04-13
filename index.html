@@ -85,7 +85,7 @@
                   <div class="contact_profile_img">
                     <img :src="contact.avatar" alt="" />
                   </div>
-                  <div class="contact_ref">
+                  <div class="contact_ref flex_col just_cen">
                     <div class="contact_name flex space_bet">
                       <p>{{ contact.name }}</p>
                       <span
@@ -120,6 +120,7 @@
                 <div class="contact_ref">
                   <div class="contact_name">
                     <p>{{ selected.name }}</p>
+                    <span>online</span>
                   </div>
                 </div>
               </div>
@@ -134,8 +135,8 @@
             <!-- fine upper_bar contact_page -->
 
             <!-- conversation -->
-            <div class="conversation flex_col">
-              <div class="conversation_row flex_col">
+            <div id="conversation" class="conversation flex_col">
+              <!-- <div class="conversation_row flex_col"> -->
                 <!-- div messaggio mandato -->
                 <div
                   v-for="(message, index) in selected.messages"
@@ -152,8 +153,7 @@
                   <p>{{ message.text }}</p>
                   <span>{{ message.hour }}</span>
                 </div>
-              </div>
-              <div class="conversation_row flex_col"></div>
+              <!-- </div> -->
             </div>
             <!-- fine conversation -->
 
