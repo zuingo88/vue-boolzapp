@@ -199,7 +199,7 @@ function initVue() {
         this.newMsg.text = this.newMsgText;
         this.newMsg.hour = dayjs().format("HH:mm");
         if (this.newMsgText) {
-          this.selected.messages.push({...this.newMsg});
+          this.selected.messages.push({ ...this.newMsg });
           this.newMsgText = "";
         }
         setTimeout(this.createAnswer, 3000);
@@ -210,17 +210,24 @@ function initVue() {
         this.selected.messages.push(this.answer);
       },
       filter: function () {
+        //inserisco in un array i contatti che nel nome hanno il testo immesso nell'input search
+        //stampo la lista dei contatti ottenuta tramite v-for in filter()
         const namesArr = [];
         for (let i = 0; i < this.contacts.length; i++) {
-          const names = this.contacts[i].name;
-          namesArr.push(names);
+          const contact = this.contacts[i];
+          const name = contact.name;
+          if (name.toLowerCase().includes(this.search.toLowerCase())) {
+            namesArr.push(contact);
+          }
         }
-        const filtered = namesArr.filter(function(str) {
-          return str.includes(this.search);
-        });
-        console.log("cazzo");
-        return filtered
-      }
+        return namesArr;
+
+        //alternativa filter
+        // const namesArr = this.contacts.filter((element) =>
+        //   element.name.toLowerCase().includes(this.search.toLowerCase())
+        // );
+        // return namesArr;
+      },
     },
   });
 }
