@@ -206,12 +206,15 @@ function initVue() {
           this.selected.messages.push({ ...this.newMsg });
           this.newMsgText = "";
         }
-        setTimeout(this.createAnswer, 3000);
+        this.createAnswer();
       },
       createAnswer: function () {
         //con la stessa logica precedente, aggiungo la risposta all'array di messaggi del contatto selezionato
-        this.answer.hour = dayjs().format("HH:mm");
-        this.selected.messages.push(this.answer);
+        const rightContact = this.selected;
+        setTimeout(() => {
+          this.answer.hour = dayjs().format("HH:mm");
+          rightContact.messages.push(this.answer);
+        }, 2000);
       },
       filter: function () {
         //inserisco in un array i contatti che nel nome hanno il testo immesso nell'input search
