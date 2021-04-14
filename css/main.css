@@ -224,8 +224,16 @@ input:focus {
 .initial_screen {
   height: 100%;
   width: 100%;
-  background-image: url(../img/initial.jpg);
+  background-color: black;
   background-size: cover;
+}
+
+.initial_screen .logo {
+  width: 40%;
+}
+
+.initial_screen .logo img {
+  width: 100%;
 }
 
 .selected_contact {
@@ -277,13 +285,15 @@ input:focus {
 /* conversation */
 .conversation {
   flex-grow: 1;
-  justify-content: end;
-  min-height: 0px;
   height: auto;
   width: 100%;
   padding: 10px 20px;
   overflow: auto;
 }
+
+.conversation div:first-child {
+  margin-top: auto !important;
+} 
 
 .bubble {
   position: relative;
