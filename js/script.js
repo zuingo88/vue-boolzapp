@@ -1,12 +1,19 @@
 function initVue() {
+
   new Vue({
+
     el: "#app",
+
     data: {
-      contacts: [
+
+      //elenco dei contatti con relativi messaggi
+      contacts: 
+      [
         {
           name: "SpongeBob",
           avatar: "img/spongebob.jpg",
-          messages: [
+          messages: 
+          [
             {
               date: "10/01/2020",
               hour: "15:30",
@@ -30,7 +37,8 @@ function initVue() {
         {
           name: "Peter",
           avatar: "img/peter.jpg",
-          messages: [
+          messages: 
+          [
             {
               date: "20/03/2020",
               hour: "16:30",
@@ -54,7 +62,8 @@ function initVue() {
         {
           name: "Roger",
           avatar: "img/roger.jpg",
-          messages: [
+          messages: 
+          [
             {
               date: "28/03/2020",
               hour: "10:10",
@@ -78,7 +87,8 @@ function initVue() {
         {
           name: "Carletto",
           avatar: "img/carletto.jpg",
-          messages: [
+          messages:
+          [
             {
               date: "10/01/2020",
               hour: "15:30",
@@ -96,7 +106,8 @@ function initVue() {
         {
           name: "Gigi",
           avatar: "img/gigi.jpg",
-          messages: [
+          messages: 
+          [
             {
               date: "10/01/2020",
               hour: "15:30",
@@ -112,103 +123,123 @@ function initVue() {
           ],
         },
         {
-          name: "Igor calcetto",
-          avatar: "img/igor.jpg",
-          messages: [
+          name: "Rick Sanchez",
+          avatar: "img/rick.png",
+          messages: 
+          [
             {
               date: "10/01/2020",
               hour: "15:30",
-              text: "Mia moglie è appena andata al lavoro. arrivo",
+              text: "Ciao rick",
               status: "sent",
             },
             {
               date: "10/01/2020",
               hour: "15:50",
-              text: "Allora mi preparo",
+              text: "ciao",
               status: "received",
             },
             {
               date: "10/01/2020",
               hour: "16:01",
-              text: "Per cosa?",
+              text: "che hai fatto ieri?",
               status: "sent",
             },
             {
               date: "10/01/2020",
               hour: "16:04",
-              text: "Vedrai...",
+              text: "niente di chè...sono stato un cetriolo",
               status: "received",
             },
           ],
         },
         {
-          name: "Amore",
-          avatar: "img/miriam.jpg",
-          messages: [
+          name: "Morty",
+          avatar: "img/morty.png",
+          messages: 
+          [
             {
               date: "10/01/2020",
               hour: "15:30",
-              text: "ciao amo, che fai?",
+              text: "come è andata l'avventura con i vendicatori?",
               status: "sent",
             },
             {
               date: "10/01/2020",
               hour: "15:50",
-              text: "Sto per finire di lavorare, tu?",
+              text: "solito pasticcio infernale",
               status: "received",
             },
             {
               date: "10/01/2020",
               hour: "15:52",
-              text:
-                "preparo la borsa e vado a giocare il calcetto con igor, come tutti i giovedì",
+              text: "scommetto che c'entra nonno rick",
               status: "sent",
             },
             {
               date: "10/01/2020",
               hour: "15:58",
-              text: "amore ma oggi è martedì...",
+              text: "che te lo dico a fare...",
               status: "received",
             },
           ],
         },
       ],
-      selected: "", //variabile per salvare l'oggetto contact in contacts, creato tramite v-for
-      newMsg: {
+
+      //variabile per salvare l'oggetto contact in contacts, creato tramite v-for
+      selected: "", 
+
+      //nuovo messaggio
+      newMsg: 
+      {
         text: "",
         hour: "",
         status: "sent",
       },
+
+      //risposta automatica
       newMsgText: "",
-      answer: {
+      answer: 
+      {
         text: "...ok.",
         hour: "",
         status: "received",
       },
+
       search: "",
     },
-    updated() {
+
+    updated() 
+    {
       const container = this.$el.querySelector("#conversation");
       container.scrollTop = container.scrollHeight;
     },
-    methods: {
-      selection: function (contact) {
+
+    methods: 
+    {
+      selection: function (contact) 
+      {
         //copia l'oggetto contact sul quale effettuo il click nella variabile selected
         this.selected = contact;
       },
-      createNewMsg: function () {
+
+      createNewMsg: function () 
+      {
         //assegno ad una variabile il testo dell'oggetto newMsg e prendo il suo valore da un input
         //aggiungo il nuovo messaggio all'array di messaggi del contatto selezionato
         //svuoto l'input
         this.newMsg.text = this.newMsgText;
         this.newMsg.hour = dayjs().format("HH:mm");
+
         if (this.newMsgText) {
           this.selected.messages.push({ ...this.newMsg });
           this.newMsgText = "";
         }
         this.createAnswer();
       },
-      createAnswer: function () {
+
+      createAnswer: function () 
+      {
         //con la stessa logica precedente, aggiungo la risposta all'array di messaggi del contatto selezionato
         const rightContact = this.selected;
         setTimeout(() => {
@@ -216,10 +247,13 @@ function initVue() {
           rightContact.messages.push(this.answer);
         }, 2000);
       },
-      filter: function () {
+
+      filter: function () 
+      {
         //inserisco in un array i contatti che nel nome hanno il testo immesso nell'input search
         //stampo la lista dei contatti ottenuta tramite v-for in filter()
         const namesArr = [];
+
         for (let i = 0; i < this.contacts.length; i++) {
           const contact = this.contacts[i];
           const name = contact.name;

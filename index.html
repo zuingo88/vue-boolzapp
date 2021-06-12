@@ -1,190 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>zuingo88 - Boolzapp</title>
-    <!-- font awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-    />
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- vue -->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <!-- day.js -->
-    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-    <!-- my css -->
-    <link rel="stylesheet" href="css/main.css" />
-    <!-- my js -->
-    <script src="js/script.js"></script>
-  </head>
-  <body>
-    <!-- screen -->
-    <div id="app" class="screen flex_col">
-      <!-- barra comandi -->
-      <div class="head_bar flex space_bet align_cen">
-        <div class="app_name">
-          <span>BoolzApp</span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>zuingo88 - Boolzapp</title>
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <!-- day.js -->
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  <!-- my css -->
+  <link rel="stylesheet" href="css/main.css" />
+  <!-- my js -->
+  <script src="js/script.js"></script>
+</head>
+
+<body>
+  <!-- screen -->
+  <div id="app" class="screen flex_col">
+    <!-- barra comandi -->
+    <div class="head_bar flex space_bet align_cen">
+      <div class="app_name">
+        <span>BoolzApp</span>
+      </div>
+      <div class="commands">
+        <span><i class="far fa-window-minimize"></i></span>
+        <span><i class="far fa-window-restore"></i></span>
+        <span><i class="fas fa-times"></i></span>
+      </div>
+    </div>
+
+    <main class="flex">
+      <!-- parte sinistra -->
+      <div class="left_part flex_col">
+        <!-- upper_bar my_profile -->
+        <div class="my_profile upper_bar flex space_bet align_cen">
+          <div class="my_profile_img">
+            <img style="height: 100%; width: 100%" src="img/heisenberg.jpg" alt="" />
+          </div>
+          <div class="my_settings">
+            <span class="stories"><span class="green_point"></span><i class="fas fa-spinner"></i></span>
+            <span><i class="fas fa-plus"></i></span>
+            <span><i class="fas fa-ellipsis-h"></i></span>
+          </div>
         </div>
-        <div class="commands">
-          <span><i class="far fa-window-minimize"></i></span>
-          <span><i class="far fa-window-restore"></i></span>
-          <span><i class="fas fa-times"></i></span>
+        <!-- search -->
+        <div class="search flex just_cen align_cen">
+          <div class="search_box flex space_bet align_cen">
+            <span class="pointer"><i class="fas fa-search"></i></span>
+            <input v-model="search" @keyup.enter="filter" type="text" placeholder="Cerca o inizia una nuova chat" />
+          </div>
+        </div>
+        <!-- lista contatti -->
+        <div class="my_contacts">
+          <ul>
+            <li v-for="(contact, index) in filter()" @click="selection(contact)">
+              <div class="contact_li flex space_bet align_cen">
+                <div class="contact_profile_img">
+                  <img :src="contact.avatar" alt="" />
+                </div>
+                <div class="contact_ref flex_col just_cen">
+                  <div class="contact_name flex space_bet">
+                    <p>{{ contact.name }}</p>
+                    <span>{{ contact.messages[contact.messages.length - 1].hour
+                      }}</span>
+                  </div>
+                  <div class="msg_preview">
+                    <span>{{ contact.messages[contact.messages.length - 1].text
+                      }}</span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
+      <!-- fine parte sinistra -->
 
-      <main class="flex">
-        <!-- parte sinistra -->
-        <div class="left_part flex_col">
-          <!-- upper_bar my_profile -->
-          <div class="my_profile upper_bar flex space_bet align_cen">
-            <div class="my_profile_img">
-              <img
-                style="height: 100%; width: 100%"
-                src="img/heisenberg.jpg"
-                alt=""
-              />
+      <!-- parte destra -->
+      <div class="right_part flex_col">
+        <!-- selected_contact -->
+        <div v-if="selected" class="selected_contact flex_col">
+          <!-- upper_bar contact_page -->
+          <div class="upper_bar contact_page flex space_bet align_cen">
+            <div class="contact_page_profile flex align_cen">
+              <div class="contact_page_img">
+                <img :src="selected.avatar" alt="" />
+              </div>
+              <div class="contact_ref">
+                <div class="contact_name">
+                  <p>{{ selected.name }}</p>
+                  <span>online</span>
+                </div>
+              </div>
             </div>
-            <div class="my_settings">
-              <span class="stories"
-                ><span class="green_point"></span><i class="fas fa-spinner"></i
-              ></span>
-              <span><i class="fas fa-plus"></i></span>
+            <div class="contact_page_settings">
+              <span><i class="fas fa-video"></i></span>
+              <span><i class="fas fa-phone-alt"></i></span>
+              <span class="line"></span>
+              <span><i class="fas fa-search"></i></span>
               <span><i class="fas fa-ellipsis-h"></i></span>
             </div>
           </div>
-          <!-- search -->
-          <div class="search flex just_cen align_cen">
-            <div class="search_box flex space_bet align_cen">
-              <span class="pointer"><i class="fas fa-search"></i></span>
-              <input
-                v-model="search"
-                @keyup.enter="filter"
-                type="text"
-                placeholder="Cerca o inizia una nuova chat"
-              />
+          <!-- fine upper_bar contact_page -->
+
+          <!-- conversation -->
+          <div id="conversation" class="conversation flex_col">
+            <!-- <div class="conversation_row flex_col"> -->
+            <!-- div messaggio mandato -->
+            <div v-for="(message, index) in selected.messages" v-if="message.status == 'sent'" class="my_speech bubble">
+              <p>{{ message.text }}</p>
+              <span>{{ message.hour }}<i class="fas fa-check-double"></i></span>
             </div>
+            <!-- div messaggio ricevuto -->
+            <div v-else class="their_speech bubble">
+              <p>{{ message.text }}</p>
+              <span>{{ message.hour }}</span>
+            </div>
+            <!-- </div> -->
           </div>
-          <!-- lista contatti -->
-          <div class="my_contacts">
-            <ul>
-              <li
-                v-for="(contact, index) in filter()"
-                @click="selection(contact)"
-              >
-                <div class="contact_li flex space_bet align_cen">
-                  <div class="contact_profile_img">
-                    <img :src="contact.avatar" alt="" />
-                  </div>
-                  <div class="contact_ref flex_col just_cen">
-                    <div class="contact_name flex space_bet">
-                      <p>{{ contact.name }}</p>
-                      <span
-                        >{{ contact.messages[contact.messages.length - 1].hour
-                        }}</span
-                      >
-                    </div>
-                    <div class="msg_preview">
-                      <span
-                        >{{ contact.messages[contact.messages.length - 1].text
-                        }}</span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
+          <!-- fine conversation -->
+
+          <!-- send message -->
+          <div class="send flex space_bet align_cen">
+            <span><i class="far fa-laugh pointer"></i></span>
+            <span><i class="fas fa-paperclip pointer"></i></span>
+            <input v-model="newMsgText" @keyup.enter="createNewMsg" @keyup.enter="createAnswer" type="text"
+              placeholder="Scrivi un messaggio" />
+            <span><i class="fas fa-microphone pointer"></i></span>
           </div>
         </div>
-        <!-- fine parte sinistra -->
-
-        <!-- parte destra -->
-        <div class="right_part flex_col">
-          <!-- selected_contact -->
-          <div v-if="selected" class="selected_contact flex_col">
-            <!-- upper_bar contact_page -->
-            <div class="upper_bar contact_page flex space_bet align_cen">
-              <div class="contact_page_profile flex align_cen">
-                <div class="contact_page_img">
-                  <img :src="selected.avatar" alt="" />
-                </div>
-                <div class="contact_ref">
-                  <div class="contact_name">
-                    <p>{{ selected.name }}</p>
-                    <span>online</span>
-                  </div>
-                </div>
-              </div>
-              <div class="contact_page_settings">
-                <span><i class="fas fa-video"></i></span>
-                <span><i class="fas fa-phone-alt"></i></span>
-                <span class="line"></span>
-                <span><i class="fas fa-search"></i></span>
-                <span><i class="fas fa-ellipsis-h"></i></span>
-              </div>
-            </div>
-            <!-- fine upper_bar contact_page -->
-
-            <!-- conversation -->
-            <div id="conversation" class="conversation flex_col">
-              <!-- <div class="conversation_row flex_col"> -->
-                <!-- div messaggio mandato -->
-                <div
-                  v-for="(message, index) in selected.messages"
-                  v-if="message.status == 'sent'"
-                  class="my_speech bubble"
-                >
-                  <p>{{ message.text }}</p>
-                  <span
-                    >{{ message.hour }}<i class="fas fa-check-double"></i
-                  ></span>
-                </div>
-                <!-- div messaggio ricevuto -->
-                <div v-else class="their_speech bubble">
-                  <p>{{ message.text }}</p>
-                  <span>{{ message.hour }}</span>
-                </div>
-              <!-- </div> -->
-            </div>
-            <!-- fine conversation -->
-
-            <!-- send message -->
-            <div class="send flex space_bet align_cen">
-              <span><i class="far fa-laugh pointer"></i></span>
-              <span><i class="fas fa-paperclip pointer"></i></span>
-              <input
-                v-model="newMsgText"
-                @keyup.enter="createNewMsg"
-                @keyup.enter="createAnswer"
-                type="text"
-                placeholder="Scrivi un messaggio"
-              />
-              <span><i class="fas fa-microphone pointer"></i></span>
-            </div>
+        <div v-else class="initial_screen flex_col just_cen align_cen">
+          <div class="logo">
+            <img src="img/zuingo.png" alt="">
           </div>
-          <div v-else class="initial_screen flex_col just_cen align_cen">
-            <div class="logo">
-              <img src="img/zuingo.png" alt="">
-            </div>
-            <div class="presentation">
-              <h1>BoolzApp</h1>
-              <p>...sai già la risposta.</p>
-            </div>
+          <div class="presentation">
+            <h1>BoolzApp</h1>
+            <p>...sai già la risposta.</p>
           </div>
-          <!-- selected_contact -->
         </div>
-        <!-- fine parte destra -->
-      </main>
-    </div>
-    <!-- fine screen -->
-  </body>
+        <!-- selected_contact -->
+      </div>
+      <!-- fine parte destra -->
+    </main>
+  </div>
+  <!-- fine screen -->
+</body>
+
 </html>
